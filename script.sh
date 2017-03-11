@@ -1,10 +1,8 @@
 #!/bin/sh
 
-set
-
 SLACK_COLOR=''
 
-if [ ! -z "${PLUGIN_SLACK_WEBHOOK_URL}" ]
+if [ ! -z "${SECRET_SLACK_WEBHOOK_URL}" ]
 then
   if [ ! -z "${PLUGIN_START}" ]
   then
@@ -21,5 +19,5 @@ then
     fi
 
   fi
-  curl -X POST --data-urlencode "payload={ 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER} at ci.terra.songsterr.com>'} ] }" ${PLUGIN_SLACK_WEBHOOK_URL}
+  curl -X POST --data-urlencode "payload={ 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER} at ci.terra.songsterr.com>'} ] }" ${SECRET_SLACK_WEBHOOK_URL}
 fi
