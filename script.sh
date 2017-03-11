@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set
+
 SLACK_COLOR=''
 
 if [ ! -z "${PLUGIN_SLACK_WEBHOOK_URL}" ]
