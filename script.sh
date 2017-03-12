@@ -19,7 +19,7 @@ then
     fi
 
   fi
-  curl -X POST --data-urlencode "payload={ 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER} at ci.terra.songsterr.com>'} ] }" ${SECRET_SLACK_WEBHOOK_URL}
+  curl -s -X POST --data-urlencode "payload={ 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER} at ci.terra.songsterr.com>'} ] }" ${SECRET_SLACK_WEBHOOK_URL}
   echo "Sent notice to Slack"
 else
   echo "There is no SECRET_SLACK_WEBHOOK_URL environment variable"
