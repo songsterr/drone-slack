@@ -6,12 +6,12 @@ if [ ! -z "${SECRET_SLACK_WEBHOOK_URL}" ]
 then
   if [ ! -z "${PLUGIN_START}" ]
   then
-    SLACK_MESSAGE="Build of <${DRONE_COMMIT_LINK}|${DRONE_REPO_NAME}:${DRONE_BRANCH}> started"
+    SLACK_MESSAGE="Starting build of <${DRONE_COMMIT_LINK}|${DRONE_REPO_NAME}:${DRONE_BRANCH}>..."
   else
 
     if [ "${DRONE_BUILD_STATUS}" = "success" ]
     then
-      SLACK_MESSAGE="Build of <${DRONE_COMMIT_LINK}|${DRONE_REPO_NAME}:${DRONE_BRANCH}> passed"
+      SLACK_MESSAGE="Build of <${DRONE_COMMIT_LINK}|${DRONE_REPO_NAME}:${DRONE_BRANCH}> completed"
       SLACK_COLOR='good'
     else
       SLACK_MESSAGE="Build of <${DRONE_COMMIT_LINK}|${DRONE_REPO_NAME}:${DRONE_BRANCH}> failed"
