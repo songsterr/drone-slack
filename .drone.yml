@@ -15,9 +15,9 @@
 # $ drone org secret ls songsterr --format="{{ . }}"
 pipeline:
 
-#  notify_start:
-#    image: hub.terra.songsterr.com/drone-slack
-#    start: true
+  notify_start:
+    image: hub.terra.songsterr.com/drone-slack
+    start: true
 
   build:
     image: docker:17.03
@@ -37,9 +37,9 @@ pipeline:
       - BRANCH=${DRONE_BRANCH##feature/}
       - COMMIT=${DRONE_COMMIT:0:8}
 
-#  notify_finish:
-#    image: hub.terra.songsterr.com/drone-slack
-#    when:
-#      status: [ success, failure ]
+  notify_finish:
+    image: hub.terra.songsterr.com/drone-slack
+    when:
+      status: [ success, failure ]
 
 branches: master
