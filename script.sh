@@ -19,7 +19,7 @@ then
     fi
 
   fi
-  curl -X POST --data-urlencode "payload={ 'username': 'CI', 'icon_emoji': ':drone:' 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER}>'} ] }" ${SECRET_SLACK_WEBHOOK_URL}
+  curl -X POST --data-urlencode "payload={ 'username': 'CI', 'icon_emoji': ':drone:', 'attachments': [ { 'color': '${SLACK_COLOR}', 'text': '${SLACK_MESSAGE}', 'mrkdwn_in': ['text'], 'footer': '<${DRONE_BUILD_LINK}|build ${DRONE_BUILD_NUMBER}>'} ] }" ${SECRET_SLACK_WEBHOOK_URL}
 else
   echo "There is no SECRET_SLACK_WEBHOOK_URL environment variable"
 fi
